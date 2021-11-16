@@ -1,23 +1,42 @@
-import Header from './components/molecules/Header'
-import Footer from './components/molecules/Footer'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import Form from './components/organisms/Form';
 import TextArea from './components/atoms/TextArea';
 import Layout from './components/template/Layout';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { DataContext } from './context';
+import { useState } from 'react';
 
 function App() {
+
+  const [data, setData] = useState({
+    name: '',
+    age: {},
+    nationality: [],
+    gender: {},
+    loading: null
+  });
+
   return (
-    <div className="App">
-      <Layout>
-        <TextArea
-          name="Juan"
-          age="25"
-          country="Argentina"
-          gender="Masculino"
-        />
-      </Layout>
-    </div>
+    <DataContext.Provider
+      value={{
+        data,
+        setData
+      }}
+    >
+      <div className="App">
+        <Layout>   
+          {
+            data.loading === false && 
+              <TextArea
+              name={data.name}
+              age={data.age}
+              country={data.nationality}
+              gender={data.gender}
+              /> 
+          }
+          { data.loading && <p>cargando</p> }
+        </Layout>
+      </div>
+    </DataContext.Provider>
   );
 }
 
