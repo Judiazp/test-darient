@@ -8,8 +8,8 @@ const TextArea = ({name, age, gender, country}) => {
         <div className="text-area shadow redounded">
             <h3>
                 {
-                    `Hola ${name}, creo que tienes ${age} años, vives en 
-                    ${country.map(item => item.country_id)} y
+                    `Hola ${name}, creo que tienes ${age ? age : 1} años, vives en 
+                    ${ country.map(item => item.country_id) } y
                     tu genero es ${genderTranslated}.`
                 }
             </h3>
