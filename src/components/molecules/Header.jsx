@@ -6,7 +6,7 @@ const Header = () => {
         <Navbar className="shadow" bg="light" variant="light">
             <Container>
                 <Navbar.Brand href="#home">
-                    Test Darient
+                    Test Darien
                 </Navbar.Brand>
             </Container>
         </Navbar>
