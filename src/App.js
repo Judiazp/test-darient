@@ -1,39 +1,37 @@
-import TextArea from './components/atoms/TextArea';
-import Layout from './components/template/Layout';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { DataContext } from './context';
-import { useState } from 'react';
+import TextArea from "./components/atoms/TextArea";
+import Layout from "./components/template/Layout";
+import { DataContext } from "./context";
+import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 function App() {
-
   const [data, setData] = useState({
-    name: '',
+    name: "",
     age: {},
     nationality: [],
     gender: {},
-    loading: null
+    loading: null,
   });
 
   return (
     <DataContext.Provider
       value={{
         data,
-        setData
+        setData,
       }}
     >
       <div className="App">
-        <Layout>   
-          {
-            data.loading === false && 
+        <Layout>
+          {data.loading === false && (
               <TextArea
-              name={data.name}
-              age={data.age}
-              country={data.nationality}
-              gender={data.gender}
-              /> 
-          }
-          { data.loading && <p>cargando</p> }
+                name={data.name}
+                age={data.age}
+                country={data.nationality}
+                gender={data.gender}
+              />
+          )}
+          {data.loading && <div className="spinner" />}
         </Layout>
       </div>
     </DataContext.Provider>

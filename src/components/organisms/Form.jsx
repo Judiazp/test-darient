@@ -11,10 +11,8 @@ const Form = () => {
         userName: ''
     })
 
-
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        
+        e.preventDefault()    
         setData({
             ...data,
             loading: true
@@ -37,7 +35,7 @@ const Form = () => {
 
     return (
         <form
-            className="w-50 d-flex"
+            className="d-flex"
             onSubmit={ handleSubmit }
         >
             <input 
