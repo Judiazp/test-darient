@@ -23,15 +23,17 @@ function App() {
     >
       <div className="App">
         <Layout>
-          {data.loading === false && (
+          {
+            data.loading === false && (
               <TextArea
                 name={data.name}
                 age={data.age}
                 country={data.nationality}
                 gender={data.gender}
               />
-          )}
-          {data.loading && <div className="spinner" />}
+            )
+          }
+          { data.loading && <div className="spinner" /> }
         </Layout>
       </div>
     </DataContext.Provider>
